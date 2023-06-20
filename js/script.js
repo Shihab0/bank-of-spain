@@ -12,8 +12,3 @@ loginBtn.addEventListener("click", () => {
     alert("enter correct email and password");
   }
 });
-
-//Bank account management
-const depositBalance = document.getElementById("depositBalance");
-const withdrawBalance = document.getElementById("withdrawBalance");
-const totalBalance = document.getElementById("totalBalance");

@@ -9,8 +9,12 @@ const withdrawBtn = document.getElementById("withdrawBtn");
 
 depositBtn.addEventListener("click", () => {
   //Deposit Box
-  const depositValue = +parseFloat(depositField.value).toFixed(2);
-  if (typeof depositValue !== "number" || isNaN(depositValue)) {
+  let depositValue = +parseFloat(depositField.value).toFixed(2);
+  if (
+    typeof depositValue !== "number" ||
+    isNaN(depositValue) ||
+    depositValue < 0
+  ) {
     alert("Enter correct amount");
     return;
   }
@@ -23,9 +27,19 @@ depositBtn.addEventListener("click", () => {
 
 withdrawBtn.addEventListener("click", () => {
   const withdrawValue = +parseFloat(withdrawField.value).toFixed(2);
-  if (typeof withdrawValue !== "number" || isNaN(withdrawValue)) {
+  if (
+    typeof withdrawValue !== "number" ||
+    isNaN(withdrawValue) ||
+    withdrawValue < 0
+  ) {
     alert("Enter correct amount");
     return;
   }
-  console.log(withdrawValue);
+  const previousWithdrewBalance = +parseFloat(
+    withdrawBalance.innerText
+  ).toFixed(2);
+  const currentWithdrawBalance = previousWithdrewBalance + withdrawValue;
+  withdrawBalance.innerText = currentWithdrawBalance;
 });
+
+//total balance

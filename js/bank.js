@@ -23,6 +23,7 @@ depositBtn.addEventListener("click", () => {
   );
   const currentDepositBalance = previousDepositBalance + depositValue;
   depositBalance.innerText = currentDepositBalance;
+  depositField.value = "";
   //total balance
   const previousTotalBalance = +parseFloat(totalBalance.innerText).toFixed(2);
   const currentTotalBalance = previousTotalBalance + depositValue;
@@ -31,6 +32,7 @@ depositBtn.addEventListener("click", () => {
 
 withdrawBtn.addEventListener("click", () => {
   const withdrawValue = +parseFloat(withdrawField.value).toFixed(2);
+  withdrawField.value = "";
   if (
     typeof withdrawValue !== "number" ||
     isNaN(withdrawValue) ||
